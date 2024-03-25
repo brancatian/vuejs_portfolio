@@ -1,0 +1,42 @@
+
+body {
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'SF Pro Regular', Helvetica, Arial, sans-serif; */
+  margin: 0 !important;
+  background-color: #f9f9ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+.title{
+  position: relative;
+  font-size: 36px;
+}
+.title::before{
+  content: "";
+  background-image: url(../assets/images/dots-bg.svg);
+  display: block;
+  height: 37px;
+  left: -14px;
+  top: -14px;
+  position: absolute;
+  width: 37px;
+}
+
+.button--pink{
+    color: #fff;
+    background: #ff4c60;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    padding: 12px 32px;
+    font-size: 16px;
+}
