@@ -1,15 +1,15 @@
 <template>
   <div class="main-content">
-    <section id="home">
+    <section :id="sectionList[0]">
         <Introduction></Introduction>
     </section>
-    <section id="about">
+    <section :id="sectionList[1]">
         <About></About>
     </section>
-    <section id="about_two">
+    <section :id="sectionList[2]">
         <About></About>
     </section>
-    <section id="about_three">
+    <section :id="sectionList[3]">
         <About></About>
     </section>
   </div>
@@ -19,9 +19,15 @@
 import { defineComponent } from "vue";
 import Introduction from "./Introduction.vue";
 import About from './About.vue';
+import store from '@/store'
 
 export default defineComponent({
   name: "HomeContent",
+  data(){
+    return {
+      sectionList: ['home','about', 'about_two','about_three']
+    }
+  },
   components:{
     Introduction,
     About
@@ -35,7 +41,15 @@ export default defineComponent({
   methods: {
     handleScroll(event: any){
       console.log(window.scrollY);
-      console.log("ABOUT ", document.getElementById('about')?.getBoundingClientRect().top);
+      let currentActive = store.getters.getNavActive;
+        this.sectionList.find(element=> {
+          let currentTop = document.getElementById(element)?.getBoundingClientRect().top as number;
+          if(currentTop <= 0 ){
+            currentActive = element;
+            return;
+          }
+        });
+        store.commit('setNavActive', currentActive);
     }
   }
 });

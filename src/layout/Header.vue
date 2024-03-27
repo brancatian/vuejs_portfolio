@@ -3,8 +3,8 @@
     <nav>
       <img src="../assets/images/bolby_logo.svg" alt="">
       <ul>
-        <li :class="{'active': section === 'home'}" @click="goToSection('home')">Home</li>
-        <li :class="{'active': section === 'about'}" @click="goToSection('about')">About</li>
+        <li :class="{'active': activeSection === 'home'}" @click="goToSection('home')">Home</li>
+        <li :class="{'active': activeSection === 'about'}" @click="goToSection('about')">About</li>
         <li>Experience</li>
         <li>Works</li>
         <li>Pricing</li>
@@ -15,19 +15,24 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
+import store from '@/store'
 
  export default defineComponent({
     name: 'Header',
-    data(){
-      return {
-        section: 'home',
+    computed:{
+      activeSection(){
+        // console.log("ACTIVE ",store.getters.getNavActive);
+        return store.getters.getNavActive;
       }
     },
+
     methods:{
       goToSection(section: any){
-        this.section = section;
         const element = document.querySelector('#'+section);
         element?.scrollIntoView({behavior: 'smooth'});
+        setTimeout(()=>{
+          store.commit('setNavActive', section);
+        }, 1000);
       }
     }
  })
