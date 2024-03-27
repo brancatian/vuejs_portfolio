@@ -1,12 +1,15 @@
 <template>
   <div class="main-content">
-    <section id="introduction">
+    <section id="home">
         <Introduction></Introduction>
     </section>
-    <section id="About">
+    <section id="about">
         <About></About>
     </section>
-    <section id="About">
+    <section id="about_two">
+        <About></About>
+    </section>
+    <section id="about_three">
         <About></About>
     </section>
   </div>
@@ -22,15 +25,30 @@ export default defineComponent({
   components:{
     Introduction,
     About
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll(event: any){
+      console.log(window.scrollY);
+      console.log("ABOUT ", document.getElementById('about')?.getBoundingClientRect().top);
+    }
   }
 });
 </script>
 <style scoped lang="scss">
   section{
     padding-top: 110px;
+    padding-left: 30px;
   }
-  section#introduction{
+
+  section#home{
     padding-top: 0;
+    padding-left: 0;
   }
   .main-content{
     color: white;
