@@ -5,7 +5,7 @@
       <ul>
         <li :class="{'active': activeSection === 'home'}" @click="goToSection('home')">Home</li>
         <li :class="{'active': activeSection === 'about'}" @click="goToSection('about')">About</li>
-        <li>Experience</li>
+        <li :class="{'active': activeSection === 'experience'}" @click="goToSection('experience')">Experience</li>
         <li>Works</li>
         <li>Pricing</li>
         <li>Testimonials</li>
@@ -21,7 +21,6 @@ import store from '@/store'
     name: 'Header',
     computed:{
       activeSection(){
-        // console.log("ACTIVE ",store.getters.getNavActive);
         return store.getters.getNavActive;
       }
     },

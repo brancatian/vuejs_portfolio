@@ -7,7 +7,7 @@
         <About></About>
     </section>
     <section :id="sectionList[2]">
-        <About></About>
+        <Experience></Experience>
     </section>
     <section :id="sectionList[3]">
         <About></About>
@@ -19,17 +19,19 @@
 import { defineComponent } from "vue";
 import Introduction from "./Introduction.vue";
 import About from './About.vue';
+import Experience from './Experience.vue';
 import store from '@/store'
 
 export default defineComponent({
   name: "HomeContent",
   data(){
     return {
-      sectionList: ['home','about', 'about_two','about_three']
+      sectionList: ['home','about', 'experience','about_three']
     }
   },
   components:{
     Introduction,
+    Experience,
     About
   },
   mounted() {

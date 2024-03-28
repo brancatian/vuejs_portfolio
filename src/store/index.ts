@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state:()=> ({
-    navList: ['home','about'],
+    navList: ['home','about', 'experience'],
     navActive: 'home'
   }),
   getters: {
