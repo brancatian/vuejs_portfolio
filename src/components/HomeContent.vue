@@ -70,4 +70,9 @@ export default defineComponent({
     color: white;
     margin-left: 290px;
   }
+  @media screen  and (max-width: 1024px) {
+    .main-content{
+      margin-left: 0;
+    }
+  }
 </style>

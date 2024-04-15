@@ -53,6 +53,9 @@
     display: flex;
     flex-direction: column;
   }
+  .title{
+    text-align: left;
+  }
   .experience__wrapper{
     width: 100%;
     max-width: 1020px;
@@ -127,5 +130,14 @@
     top: 30px;
     bottom: 30px;
     left: 34px;
+  }
+  @media screen and (max-width: 1024px) {
+    .experience__column{
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .experience__wrapper{
+      flex-direction: column;
+    }
   }
 </style>
