@@ -89,7 +89,7 @@ import store from '@/store'
       display: block;
     }
     ul{
-      margin-top: 50px;
+      margin-top: 20px;
     }
     .icon-close{
       font-size: 35px;

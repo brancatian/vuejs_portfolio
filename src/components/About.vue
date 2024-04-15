@@ -51,7 +51,7 @@
   }
   .about__wrapper{
     width: 100%;
-    max-width: 1020px;  
+    max-width: 1020px;
     margin: auto;
     display: flex;
   }
@@ -122,5 +122,18 @@
     background-color: #353353;
     box-shadow: none;
     transition: width 0.6s ease;
+  }
+  @media screen and (max-width: 1024px) {
+    .about__left img{
+      width: 100px;
+      height: 100px;
+    }
+    .about__right{
+      flex-direction: column-reverse;
+    }
+    .about__skills, .about__message{
+
+      width: 100%;
+    } 
   }
 </style>
